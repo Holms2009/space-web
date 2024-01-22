@@ -1,0 +1,33 @@
+:root {
+  --space: #141E2D;
+  --blue-main: #3393FF;
+  --blue: #4646F0;
+  --lazur: #00D2E6;
+  --light-green: #0DEFAB;
+  --green: #0EC891;
+  --white: #ffffff;
+  --white-2: #f5f8fb;
+  --grey-1: #E6EFF8;
+  --grey-2: #B7C3D2;
+  --grey-3: #8997AC;
+  --grey-4: #71839E;
+  --yellow: #FFC126;
+  --red: #DB233A;
+
+  font-family: 'TTNorms', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+
+  padding: 0;
+  margin: 0;
+  border: none;
+}

@@ -1,0 +1,30 @@
+.wrapper {
+  padding: 12px 32px;
+  
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 500;
+  color: var(--white);
+  
+  background-color: var(--blue-main);
+  border: none;
+  border-radius: 2px;
+
+  transition: background-color 0.3s ease;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.wrapper:hover, .wrapper:focus {
+  background-color: color-mix(in srgb, var(--blue-main) 90%, var(--space));
+}
+
+.wrapper:active {
+  background-color: color-mix(in srgb, var(--blue-main) 80%, var(--space));
+}
+
+.wrapper:disabled {
+  background-color: var(--grey-2);
+}
