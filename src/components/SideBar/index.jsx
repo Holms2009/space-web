@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import styles from './SideBar.module.css';
 
-import { menu } from './config';
+import { menu } from '../../shared/config/sideBar';
 import { ThemeToggle } from '../ThemeToggle';
 
 export function SideBar({ isOpened }) {

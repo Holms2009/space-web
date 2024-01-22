@@ -3,6 +3,7 @@ import styles from './App.module.css';
 import { Header } from '../components/Header';
 import { useState } from 'react';
 import { SideBar } from '../components/SideBar';
+import { OrderVPS } from '../components/OrderVPS';
 
 function App() {
   const [showSideBar, setShowSideBar] = useState(false);
@@ -15,7 +16,8 @@ function App() {
     <>
       <Header showThemeToggle={showSideBar} onBurgerClick={toggleSideBar} />
       <div className={styles.wrapper}>
-        <SideBar isOpened={showSideBar}/>
+        <SideBar isOpened={showSideBar} />
+        <OrderVPS />
       </div>
     </>
   )

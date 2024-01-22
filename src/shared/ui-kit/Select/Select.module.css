@@ -1,0 +1,94 @@
+.wrapper {
+  width                      : 100%;
+  position                   : relative;
+
+  background-color           : var(--white);
+  border: 2px solid var(--grey-2);
+  border-radius: 5px;
+  user-select                : none;
+  cursor                     : pointer;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.selected {
+  padding: 8px 16px;
+  color: var(--grey-2);
+}
+
+.arrow {
+  width          : 16px;
+  height         : 16px;
+
+  background     : url('../../../assets/images/select_arrow.svg') no-repeat 50% 50%;
+  background-size: cover;
+
+  position       : absolute;
+  top            : 50%;
+  right          : 14px;
+  transform      : translateY(-50%);
+  transition     : transform 0.2s ease;
+}
+
+.options {
+  width           : 100%;
+  max-height      : 180px;
+
+  position        : absolute;
+  top             : calc(100% + 6px);
+  left            : 0;
+
+  background-color: var(--white);
+  box-shadow      : 0 0 10px 0 #B7C3D280;
+  border-radius: 4px;
+  opacity         : 0;
+  visibility      : hidden;
+
+  overflow        : auto;
+  z-index         : -1;
+}
+
+.options.opened {
+  visibility: visible;
+  z-index   : 1;
+  animation : open 0.3s ease forwards;
+}
+
+.opened~.arrow {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.option {
+  padding: 6px 16px;
+  width: 100%;
+
+  color     : var(--space);
+}
+
+.option:first-child {
+  padding-top: 12px;
+}
+
+.option:last-child {
+  padding-bottom: 12px;
+}
+
+.option:hover {
+  color: var(--white);
+  background-color: var(--blue-main);
+}
+
+.option.active {
+  color: var(--space);
+  background-color: var(--grey-1);
+}
+
+@keyframes open {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
