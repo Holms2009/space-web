@@ -1,11 +1,17 @@
 import styles from './Header.module.css';
 import { ThemeToggle } from '../ThemeToggle';
 
-export function Header({ showThemeToggle }) {
+export function Header({ showThemeToggle, onBurgerClick }) {
+  function burgerClickHandler() {
+    onBurgerClick && onBurgerClick();
+  }
+
   return (
     <header className={styles.wrapper}>
-      <ThemeToggle isVisible={showThemeToggle} />
-      <div className={styles.burger}>
+      <div className={styles.desktopBar}>
+        <ThemeToggle isVisible={showThemeToggle} />
+      </div>
+      <div className={styles.burger} onClick={burgerClickHandler}>
         <span className={styles.burgerLine}></span>
         <span className={styles.burgerLine}></span>
         <span className={styles.burgerLine}></span>

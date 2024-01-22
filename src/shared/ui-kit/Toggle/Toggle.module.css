@@ -1,0 +1,35 @@
+.wrapper {
+  display: block;
+
+  width: 36px;
+  height: 20px;
+
+  background-color: var(--grey-2);
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle {
+  width: 20px;
+  height: 20px;
+
+  background: url('../../../assets/images/theme_toggle.svg') no-repeat 50% 50%;
+  background-size: cover;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  transition: all 0.3s ease;
+}
+
+.origin {
+  display: none;
+}
+
+.active .toggle {
+  left: 100%;
+  transform: translateX(-100%);
+}
