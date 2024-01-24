@@ -61,6 +61,26 @@
   overflow: hidden;
 }
 
+.menuGroup:first-child .menuItem:first-child {
+  background-color: var(--blue-main);
+}
+
+.menuGroup:first-child .menuItem:first-child:hover {
+  background-color: color-mix(in srgb, var(--blue-main) 90%, var(--space));
+}
+
+.menuGroup:first-child .menuItem:first-child:active {
+  background-color: color-mix(in srgb, var(--blue-main) 80%, var(--space));
+}
+
+.menuGroup:first-child .menuItem:first-child .menuIcon {
+  filter: invert();
+}
+
+.menuGroup:first-child .menuItem:first-child .menuText {
+  color: var(--white);
+}
+
 .menuItem:hover {
   background-color: color-mix(in srgb, var(--blue-main) 10%, var(--white));
 }
@@ -69,7 +89,7 @@
   content: '';
   width: 100%;
   height: 100%;
-  max-width: 100%;
+  max-width: 6px;
   display: none;
 
   position: absolute;
@@ -88,16 +108,6 @@
   display: block;
 }
 
-.menuItem:hover::before {
-  content: '';
-  max-width: 6px;
-  display: block;
-}
-
-.menuItem.active:hover::before {
-  max-width: 100%;
-}
-
 .menuGroup:first-of-type .menuItem:last-child {
   margin-top: 18px;
 }
@@ -110,21 +120,12 @@
   position: relative;
 }
 
-.menuItem.active .menuIcon {
-  filter: invert();
-}
-
 .menuText {
   margin-left: 16px;
 
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
-}
-
-.menuItem.active .menuText {
-  position: relative;
-  color: var(--white);
 }
 
 .subgroup {
