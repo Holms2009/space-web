@@ -52,16 +52,12 @@
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-html, body {
-  min-height: 100vh;
-}
-
 body {
   background-color: var(--white-2);
 }
 
 #root {
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }

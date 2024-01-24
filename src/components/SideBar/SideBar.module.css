@@ -87,9 +87,8 @@
 
 .menuItem::before {
   content: '';
-  width: 100%;
+  width: 6px;
   height: 100%;
-  max-width: 6px;
   display: none;
 
   position: absolute;
@@ -97,11 +96,6 @@
   left: 0;
 
   background-color: var(--blue-main);
-  transition: max-width 0.3s ease;
-}
-
-.menuItem.active {
-  background: none;
 }
 
 .menuItem.active::before {
