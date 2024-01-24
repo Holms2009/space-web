@@ -5,29 +5,55 @@
   background-color           : var(--white);
   border: 2px solid var(--grey-2);
   border-radius: 5px;
+  text-align: left;
+  
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transition: border-color 0.3s ease;
   user-select                : none;
   cursor                     : pointer;
+}
 
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+.wrapper.hasText,
+.wrapper:hover {
+  border-color: var(--grey-3);
+}
+
+.wrapper:focus {
+  border-color: var(--blue-main);
+  outline: none;
 }
 
 .selected {
   padding: 8px 16px;
   color: var(--grey-2);
+  transition: color 0.3s ease;
+}
+
+.wrapper.hasText .selected {
+  color: var(--space);
+}
+
+.wrapper:hover .selected {
+  color: var(--grey-3);
 }
 
 .arrow {
   width          : 16px;
   height         : 16px;
 
-  background     : url('../../../assets/images/select_arrow.svg') no-repeat 50% 50%;
-  background-size: cover;
-
   position       : absolute;
   top            : 50%;
   right          : 14px;
   transform      : translateY(-50%);
-  transition     : transform 0.2s ease;
+  transition     : all 0.3s ease;
+}
+
+.wrapper:hover .arrow {
+  fill: var(--grey-3);
+}
+
+.wrapper:focus .arrow {
+  fill: var(--blue-main);
 }
 
 .options {
@@ -48,9 +74,22 @@
   z-index         : -1;
 }
 
+.options::-webkit-scrollbar {
+  width: 8px;
+}
+
+.options::-webkit-scrollbar-track {
+  background-color: var(--white);
+}
+
+.options::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: var(--grey-2);
+}
+
 .options.opened {
   visibility: visible;
-  z-index   : 1;
+  z-index   : 100;
   animation : open 0.3s ease forwards;
 }
 

@@ -37,7 +37,7 @@ export function getOsSelectOptions(data) {
 }
 
 export function filterAvailableOs(data, panel) {
-  return data.filter((item) => item.panel_type.includes(panel));
+  return data.filter((item) => item.panel_type.includes(panel) || (panel.includes('isp') && item.panel_type.includes('isp')));
 }
 
 export function getDCOptions(data) {
