@@ -39,3 +39,7 @@ export function getOsSelectOptions(data) {
 export function filterAvailableOs(data, panel) {
   return data.filter((item) => item.panel_type.includes(panel));
 }
+
+export function getDCOptions(data) {
+  return data.map((item) => ({ name: item.location, id: item.name }));
+}

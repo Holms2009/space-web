@@ -1,0 +1,51 @@
+.wrapper {
+  padding: 2px 0;
+
+  display: flex;
+  align-items: center;
+
+  background-color: var(--white);
+  border: 1px solid var(--blue-main);
+  border-radius: 50px;
+
+  position: relative;
+  cursor: pointer;
+}
+
+.left, .right {
+  flex-grow: 1;
+  text-align: center;
+
+  font-size: 12px;
+  line-height: 17px;
+  font-weight: 500;
+  color: var(--blue-main);
+
+  transition: color 0.5s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.left.isActive, .right.isActive {
+  color: var(--white);
+}
+
+.toggle {
+  height: 100%;
+  width: 100%;
+  max-width: 0px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background-color: var(--blue-main);
+  border-radius: 50px;
+
+  transition: all 0.5s ease;
+}
+
+.toggle.toRight {
+  left: 100%;
+  transform: translateX(-100%);
+}

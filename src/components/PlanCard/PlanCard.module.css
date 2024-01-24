@@ -58,7 +58,9 @@
   margin-top: 20px;
 }
 
-.panel .caption, .os .caption {
+.panel .caption,
+.os .caption,
+.dataCenters .caption {
   margin-bottom: 8px;
 }
 
@@ -68,6 +70,7 @@
 
 .dataCenters {
   margin-top: 20px;
+  max-width: 200px;
 }
 
 .bonus {

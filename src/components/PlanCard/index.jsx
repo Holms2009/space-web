@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import styles from './PlanCard.module.css';
-import { filterAvailableOs, getCategoryIcon, getCPUFrequency, getOsSelectOptions, getPanelSelectOptions } from './utils';
-import { Button, Select } from '../../shared/ui-kit';
+import { filterAvailableOs, getCategoryIcon, getCPUFrequency, getDCOptions, getOsSelectOptions, getPanelSelectOptions } from './utils';
+import { Button, LRToggle, Select } from '../../shared/ui-kit';
 
-export function PlanCard({ plan, selectPanel, selectOs }) {
+export function PlanCard({ plan, selectPanel, selectOs, dataCenters }) {
   const panelSelectOptions = getPanelSelectOptions(selectPanel);
+  const dcOptions = getDCOptions(dataCenters);
 
   const [osSelectOptions, setOsSelectOptions] = useState(getOsSelectOptions(selectOs));
   const [selectedPanel, setSelectedPanel] = useState(panelSelectOptions[0]);
   const [selectedOs, setSelectedOs] = useState(osSelectOptions[0]);
+  const [selectedDC, setSelectedDC] = useState(dcOptions[0]);
 
   useEffect(() => {
     const filteredOs = filterAvailableOs(selectOs, selectedPanel.id);
@@ -24,6 +26,10 @@ export function PlanCard({ plan, selectPanel, selectOs }) {
 
   function osSelectHandler(option) {
     setSelectedOs(option);
+  }
+
+  function dcToggleHandler(value) {
+    setSelectedDC(value);
   }
 
   return (
@@ -58,6 +64,7 @@ export function PlanCard({ plan, selectPanel, selectOs }) {
         }
         <div className={styles.dataCenters}>
           <span className={styles.caption}>Дата-центр</span>
+          <LRToggle values={dcOptions} active={selectedDC} onClick={dcToggleHandler}/>
         </div>
         <div className={styles.bonus}>
           <span className={styles.plusIcon}></span>
@@ -66,7 +73,7 @@ export function PlanCard({ plan, selectPanel, selectOs }) {
             <li className={styles.bonusItem}>3 резервных копии</li>
           </ul>
         </div>
-        <Button text="Заказать" width100/>
+        <Button text="Заказать" width100 />
       </div>
     </div>
   )
