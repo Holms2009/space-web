@@ -53,7 +53,11 @@
 }
 
 html, body {
-  height: 100vh;
+  min-height: 100vh;
+}
+
+body {
+  background-color: var(--white-2);
 }
 
 #root {
