@@ -1,5 +1,7 @@
 .wrapper {
   padding: 20px 20px 24px 20px;
+  width: 280px;
+
   background-color: color-mix(in srgb, var(--lazur) 12%, var(--white));
 }
 
@@ -91,4 +93,10 @@
 .bonusItem {
   font-size: 12px;
   line-height: 17px;
+}
+
+@media screen and (min-width: 540px) {
+  .wrapper {
+    width: 240px;
+  }
 }
