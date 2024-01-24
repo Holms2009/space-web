@@ -14,3 +14,28 @@ export function getCategoryIcon(slug) {
       return nvmeIcon;
   }
 }
+
+export function getCPUFrequency(category) {
+  switch (category) {
+    case 'nvme':
+      return '2.8 ГГц';
+    case 'turbo':
+      return '5 ГГц';
+    case 'hdd':
+      return '2.1 ГГц';
+    default:
+      return '2.8 ГГц'
+  }
+}
+
+export function getPanelSelectOptions(data) {
+  return data.map((item) => ({ name: item.description, id: item.name }));
+}
+
+export function getOsSelectOptions(data) {
+  return data.map((item) => ({ name: item.description, id: item.name }));
+}
+
+export function filterAvailableOs(data, panel) {
+  return data.filter((item) => item.panel_type.includes(panel));
+}

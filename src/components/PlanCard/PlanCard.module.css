@@ -1,5 +1,5 @@
 .wrapper {
-  padding: 20px;
+  padding: 20px 20px 24px 20px;
   background-color: color-mix(in srgb, var(--lazur) 12%, var(--white));
 }
 
@@ -38,6 +38,8 @@
 }
 
 .caption {
+  display: inline-block;
+
   font-size: 12px;
   line-height: 17px;
   color: var(--grey-4);
@@ -48,4 +50,45 @@
   
   font-size: 16px;
   line-height: 21px;
+}
+
+.panel {
+  margin-top: 20px;
+}
+
+.panel .caption, .os .caption {
+  margin-bottom: 8px;
+}
+
+.os {
+  margin-top: 12px;
+}
+
+.dataCenters {
+  margin-top: 20px;
+}
+
+.bonus {
+  margin: 20px 0;
+
+  display: flex;
+  align-items: center;
+}
+
+.plusIcon {
+  width: 11px;
+  height: 11px;
+
+  background: url('../../assets/images/plus_icon.svg') no-repeat 50% 50%;
+  background-size: cover;
+}
+
+.bonusList {
+  margin-left: 16px;
+  list-style: none;
+}
+
+.bonusItem {
+  font-size: 12px;
+  line-height: 17px;
 }

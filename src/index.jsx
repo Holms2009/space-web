@@ -6,7 +6,7 @@ import './index.css';
 import 'normalize.css';
 
 import App from './app/App.jsx';
-import store from './app/store/index.js';
+import { store } from './app/store';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

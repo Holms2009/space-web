@@ -1,16 +1,18 @@
 import classNames from 'classnames';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './SideBar.module.css';
 
-import { menu } from '../../shared/config/sideBar';
 import { ThemeToggle } from '../ThemeToggle';
+import { menu } from '../../shared/config/sideBar';
+import { setActiveSection } from '../../app/store';
 
 export function SideBar({ isOpened }) {
-  const [activeItem, setActiveItem] = useState('vps');
+  const { activeSection } = useSelector(state => state.app)
+  const dispatch = useDispatch();
 
-  function menuItemClickHandler(id, hasSubgroup) {
-    setActiveItem(id);
+  function menuItemClickHandler(id) {
+    dispatch(setActiveSection(id));
   }
 
   return (
@@ -20,7 +22,7 @@ export function SideBar({ isOpened }) {
           <div className={styles.menuGroup} key={index}>
             {group.map((item) => (
               <div
-                className={classNames(styles.menuItem, { [styles.active]: activeItem === item.id })}
+                className={classNames(styles.menuItem, { [styles.active]: activeSection === item.id })}
                 onClick={() => menuItemClickHandler(item.id)}
                 key={item.id}
               >

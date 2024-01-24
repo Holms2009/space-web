@@ -1,0 +1,13 @@
+.wrapper {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 60px;
+  font-weight: 500;
+  color: var(--grey-1);
+}

@@ -43,7 +43,7 @@ export function OrderVPS() {
           data ?
             data.vpsPlans.map((item) => (
               (selectedCategory.id === 'all' || item.category === selectedCategory.id) ?
-                <PlanCard data={item} key={item.id} /> :
+                <PlanCard plan={item} key={item.id} selectPanel={data.selectPanel} selectOs={data.selectOs}/> :
                 null
             )) : null
         }

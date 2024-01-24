@@ -1,12 +1,14 @@
+import { useState } from 'react';
+
 import styles from './App.module.css';
 
-import { Header } from '../components/Header';
-import { useState } from 'react';
-import { SideBar } from '../components/SideBar';
-import { OrderVPS } from '../components/OrderVPS';
+import { Header, SideBar } from '../components';
+import { selectSection } from './utils';
+import { useSelector } from 'react-redux';
 
 function App() {
   const [showSideBar, setShowSideBar] = useState(false);
+  const { activeSection } = useSelector(state => state.app);
 
   function toggleSideBar() {
     setShowSideBar(!showSideBar);
@@ -17,7 +19,7 @@ function App() {
       <Header showThemeToggle={showSideBar} onBurgerClick={toggleSideBar} />
       <div className={styles.wrapper}>
         <SideBar isOpened={showSideBar} />
-        <OrderVPS />
+        {selectSection(activeSection)}
       </div>
     </>
   )
