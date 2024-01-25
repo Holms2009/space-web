@@ -1,24 +1,36 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import styles from './PlanCard.module.css';
-import { filterAvailableOs, getCategoryIcon, getCPUFrequency, getDCOptions, getOsSelectOptions, getPanelSelectOptions } from './utils';
+import {
+  filterAvailablePanels,
+  filterAvailableOs,
+  filterOsByPanel,
+  getCategoryIcon,
+  getCPUFrequency,
+  getDCOptions,
+  getOsSelectOptions,
+  getPanelSelectOptions
+} from './utils';
 import { Button, LRToggle, Select } from '../../shared/ui-kit';
 
-export function PlanCard({ plan, selectPanel, selectOs, dataCenters }) {
-  const panelSelectOptions = getPanelSelectOptions(selectPanel);
+export function PlanCard({ plan, selectPanel, selectOs, dataCenters, distributives }) {
   const dcOptions = getDCOptions(dataCenters);
 
-  const [osSelectOptions, setOsSelectOptions] = useState(getOsSelectOptions(selectOs));
+  const availablePanels = useMemo(() => filterAvailablePanels(plan.id, distributives, selectPanel), [selectPanel, distributives, plan]);
+  const availableOs = useMemo(() => filterAvailableOs(plan.id, distributives, selectOs), [selectOs, distributives, plan]);
+  const panelSelectOptions = useMemo(() => getPanelSelectOptions(availablePanels), [availablePanels]);
+
+  const [osSelectOptions, setOsSelectOptions] = useState(getOsSelectOptions(availableOs));
   const [selectedPanel, setSelectedPanel] = useState(panelSelectOptions[0]);
   const [selectedOs, setSelectedOs] = useState(osSelectOptions[0]);
   const [selectedDC, setSelectedDC] = useState(dcOptions[0]);
 
   useEffect(() => {
-    const filteredOs = filterAvailableOs(selectOs, selectedPanel.id);
+    const filteredOs = filterOsByPanel(selectedPanel, availableOs, distributives);
     const filteredOptions = getOsSelectOptions(filteredOs);
 
     setOsSelectOptions(filteredOptions);
     setSelectedOs(filteredOptions[0]);
-  }, [selectedPanel, selectOs])
+  }, [selectedPanel, availableOs, distributives])
 
   function panelSelectHandler(option) {
     setSelectedPanel(option);
@@ -64,7 +76,7 @@ export function PlanCard({ plan, selectPanel, selectOs, dataCenters }) {
         }
         <div className={styles.dataCenters}>
           <span className={styles.caption}>Дата-центр</span>
-          <LRToggle values={dcOptions} active={selectedDC} onClick={dcToggleHandler}/>
+          <LRToggle values={dcOptions} active={selectedDC} onClick={dcToggleHandler} />
         </div>
         <div className={styles.bonus}>
           <span className={styles.plusIcon}></span>

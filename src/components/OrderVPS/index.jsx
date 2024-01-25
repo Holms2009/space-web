@@ -48,6 +48,7 @@ export function OrderVPS() {
                   selectPanel={data.selectPanel}
                   selectOs={data.selectOs} 
                   dataCenters={data.datacenters}
+                  distributives={data.osPanel}
                   key={item.id}
                   /> :
                 null
