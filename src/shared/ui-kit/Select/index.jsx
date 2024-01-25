@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 
 import styles from './Select.module.css';
 
-import { useOutsideClickClose } from '../../lib/hooks';
+import { useOutsideClickClose } from '../../lib';
 
 export function Select({ options, selected, selectHandler }) {
   const [isOpened, setIsOpened] = useState(false);

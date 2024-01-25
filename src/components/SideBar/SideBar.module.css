@@ -48,44 +48,52 @@
 }
 
 .menuItem {
+  max-height: 130px;
+
+  display: flex;
+  flex-direction: column;  
+
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.menuItemWrapper {
   padding: 10px 20px;
-  max-height: 40px;
 
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
 
   white-space: nowrap;
-  cursor: pointer;
   position: relative;
-  overflow: hidden;
 }
 
-.menuGroup:first-child .menuItem:first-child {
+.menuGroup:first-child .menuItem:first-child .menuItemWrapper {
   background-color: var(--blue-main);
 }
 
-.menuGroup:first-child .menuItem:first-child:hover {
+.menuGroup:first-child .menuItem:first-child:hover .menuItemWrapper {
   background-color: color-mix(in srgb, var(--blue-main) 90%, var(--space));
 }
 
-.menuGroup:first-child .menuItem:first-child:active {
+.menuGroup:first-child .menuItem:first-child:active .menuItemWrapper {
   background-color: color-mix(in srgb, var(--blue-main) 80%, var(--space));
 }
 
-.menuGroup:first-child .menuItem:first-child .menuIcon {
+.menuGroup:first-child .menuItem:first-child .menuItemWrapper .menuIcon {
   filter: invert();
 }
 
-.menuGroup:first-child .menuItem:first-child .menuText {
+.menuGroup:first-child .menuItem:first-child .menuItemWrapper .menuText {
   color: var(--white);
 }
 
-.menuItem:hover {
+.menuItemWrapper:hover {
   background-color: color-mix(in srgb, var(--blue-main) 10%, var(--white));
 }
 
-.menuItem::before {
+.menuItemWrapper::before {
   content: '';
   width: 6px;
   height: 100%;
@@ -98,7 +106,7 @@
   background-color: var(--blue-main);
 }
 
-.menuItem.active::before {
+.menuItem.active .menuItemWrapper::before {
   display: block;
 }
 
@@ -122,8 +130,37 @@
   line-height: 20px;
 }
 
-.subgroup {
-  
+.submenu {
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+.subItem {
+  padding: 5px 6px 5px 36px;
+  min-height: 30px;
+
+  display: flex;
+  align-items: center;
+}
+
+.subItem .menuIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.monitorIcon {
+  margin-left: 4px;
+  width: 10px;
+  height: 10px;
+
+  background-color: var(--grey-2);
+  border-radius: 50%;
+}
+
+.monitorIcon.monitorActive {
+  background-color: var(--green);
 }
 
 @media screen and (min-width: 540px) {
