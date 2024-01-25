@@ -1,0 +1,68 @@
+.wrapper {
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--white-2);
+}
+
+.list {
+  list-style: none;
+}
+
+.listItem {
+  display: block;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--space);
+}
+
+.link {
+  font-family: 'TTNorms', sans-serif;
+  color: var(--blue-main);
+  text-decoration: none;
+}
+
+.info {}
+
+.links, .phones {
+  margin-top: 8px;
+}
+
+.linksWrapper {
+  margin-top: 4px;
+  display: flex;
+}
+
+.appLink:last-child {
+  margin-left: 10px;
+}
+
+@media screen and (min-width: 540px) {
+  .wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .info {
+    flex-basis: 40%;
+  }
+
+  .links {
+    margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .info {
+    flex-basis: 60%;
+  }
+}
+
+@media screen and (min-width: 1022px) {
+  .info {
+    flex-basis: unset;
+  }
+}

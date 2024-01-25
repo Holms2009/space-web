@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import styles from './App.module.css';
 
-import { Header, SideBar } from '../components';
+import { Header, SideBar, Footer } from '../components';
 import { selectSection } from './utils';
 import { useSelector } from 'react-redux';
 
@@ -21,6 +21,7 @@ function App() {
         <SideBar isOpened={showSideBar} />
         {selectSection(activeSection)}
       </div>
+      <Footer />
     </>
   )
 }
