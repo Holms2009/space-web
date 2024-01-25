@@ -68,7 +68,7 @@ export function filterOsByPanel(panel, osList, distributives) {
 }
 
 export function getPanelSelectOptions(data) {
-  return data.map((item) => ({ name: item.description, id: item.id }));
+  return data.map((item) => ({ name: item.description, id: item.id, price: item.price }));
 }
 
 export function getOsSelectOptions(data) {
@@ -77,4 +77,8 @@ export function getOsSelectOptions(data) {
 
 export function getDCOptions(data) {
   return data.map((item) => ({ name: item.location, id: item.name }));
+}
+
+export function getTotalPrice(plan, panel) {
+  return plan.price_per_month + panel.price;
 }

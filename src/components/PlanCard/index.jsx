@@ -8,7 +8,8 @@ import {
   getCPUFrequency,
   getDCOptions,
   getOsSelectOptions,
-  getPanelSelectOptions
+  getPanelSelectOptions,
+  getTotalPrice
 } from './utils';
 import { Button, LRToggle, Select } from '../../shared/ui-kit';
 
@@ -23,6 +24,7 @@ export function PlanCard({ plan, selectPanel, selectOs, dataCenters, distributiv
   const [selectedPanel, setSelectedPanel] = useState(panelSelectOptions[0]);
   const [selectedOs, setSelectedOs] = useState(osSelectOptions[0]);
   const [selectedDC, setSelectedDC] = useState(dcOptions[0]);
+  const [totalPrice, setTotalPrice] = useState(getTotalPrice(plan, selectedPanel));
 
   useEffect(() => {
     const filteredOs = filterOsByPanel(selectedPanel, availableOs, distributives);
@@ -30,7 +32,13 @@ export function PlanCard({ plan, selectPanel, selectOs, dataCenters, distributiv
 
     setOsSelectOptions(filteredOptions);
     setSelectedOs(filteredOptions[0]);
-  }, [selectedPanel, availableOs, distributives])
+  }, [selectedPanel, availableOs, distributives]);
+
+  useEffect(() => {
+    setTotalPrice(
+      getTotalPrice(plan, selectedPanel)
+    )
+  }, [selectedPanel]);
 
   function panelSelectHandler(option) {
     setSelectedPanel(option);
@@ -50,7 +58,7 @@ export function PlanCard({ plan, selectPanel, selectOs, dataCenters, distributiv
         <img src={getCategoryIcon(plan.category)} alt="" />
         <span className={styles.planName}>{plan.name}</span>
       </div>
-      <p className={styles.price}>{`${plan.price_per_month} ₽/мес`}</p>
+      <p className={styles.price}>{`${totalPrice} ₽/мес`}</p>
       <div className={styles.specs}>
         <div className={styles.specsItem}>
           <span className={styles.caption}>CPU</span>
