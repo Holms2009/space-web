@@ -3,7 +3,7 @@ import { ThemeToggle } from '../ThemeToggle';
 
 export function Header({ showThemeToggle, onBurgerClick }) {
   function burgerClickHandler() {
-    onBurgerClick && onBurgerClick();
+    onBurgerClick && onBurgerClick(!showThemeToggle);
   }
 
   return (

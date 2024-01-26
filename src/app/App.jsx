@@ -10,15 +10,15 @@ function App() {
   const [showSideBar, setShowSideBar] = useState(false);
   const { activeSection } = useSelector(state => state.app);
 
-  function toggleSideBar() {
-    setShowSideBar(!showSideBar);
+  function toggleSideBar(value) {
+    setShowSideBar(value);
   }
 
   return (
     <>
       <Header showThemeToggle={showSideBar} onBurgerClick={toggleSideBar} />
       <div className={styles.wrapper}>
-        <SideBar isOpened={showSideBar} />
+        <SideBar isOpened={showSideBar} openHandler={toggleSideBar}/>
         {selectSection(activeSection)}
       </div>
       <Footer />

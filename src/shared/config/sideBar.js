@@ -10,6 +10,9 @@ import balancersIcon from '../../assets/images/balansers.svg';
 import backupsIcon from '../../assets/images/backups.svg';
 import monitoringIcon from '../../assets/images/monitoring.svg';
 import domensIcon from '../../assets/images/domens.svg';
+import my_domains from '../../assets/images/my_domains.svg';
+import domain_bonuses from '../../assets/images/domain_bonuses.svg';
+import domain_personas from '../../assets/images/domain_personas.svg';
 import sslIcon from '../../assets/images/ssl.svg';
 import shopIcon from '../../assets/images/shop.svg';
 import seoIcon from '../../assets/images/seo.svg';
@@ -43,7 +46,13 @@ export function getMenuData() {
     ],
     [
       { id: 'monitoring', name: 'Мониторинг', icon: monitoringIcon, submenu: null },
-      { id: 'domains', name: 'Домены', icon: domensIcon, submenu: [] },
+      {
+        id: 'domains', name: 'Домены', icon: domensIcon, submenu: [
+          { id: 'my_domains', name: 'Мои домены', type: 'menu', icon: my_domains },
+          { id: 'domain_bonuses', name: 'Доменные бонусы', type: 'menu', icon: domain_bonuses },
+          { id: 'domain_personas', name: 'Доменные персоны', type: 'menu', icon: domain_personas },
+        ]
+      },
       { id: 'ssl', name: 'SSL', icon: sslIcon, submenu: null },
       { id: 'shop', name: 'Магазин', icon: shopIcon, submenu: null },
       { id: 'seo', name: 'SEO и реклама', icon: seoIcon, submenu: null }

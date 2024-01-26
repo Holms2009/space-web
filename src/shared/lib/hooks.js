@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export function useOutsideClickClose(ref, stateChanger) {
   useEffect(() => {
@@ -14,4 +14,26 @@ export function useOutsideClickClose(ref, stateChanger) {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   });
+}
+
+export function useMediaQuery(query, initialValue = false) {
+  const [matches, setMatches] = useState(initialValue);
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
+
+    const listener = () => {
+      setMatches(media.matches);
+    };
+
+    media.addListener(listener);
+    
+    return () => media.removeListener(listener);
+  }, [matches, query]);
+
+  return matches;
 }

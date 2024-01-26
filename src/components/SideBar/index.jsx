@@ -7,24 +7,24 @@ import { ThemeToggle } from '../ThemeToggle';
 import { getMenuData } from '../../shared/config/sideBar';
 import { setActiveSection } from '../../app/store';
 import { useEffect, useState } from 'react';
-import { lockScroll, unlockScroll } from '../../shared/lib';
+import { lockScroll, unlockScroll, useMediaQuery } from '../../shared/lib';
 
-export function SideBar({ isOpened }) {
+export function SideBar({ isOpened, openHandler }) {
   const { activeSection } = useSelector(state => state.app)
   const [openedSubmenus, setOpenedSubmenus] = useState([]);
   const dispatch = useDispatch();
   const menu = getMenuData();
+  const isMobile = useMediaQuery('(max-width: 540px)');
 
   useEffect(() => {
-    isOpened ? lockScroll() : unlockScroll();
+    if (isMobile) {
+      isOpened ? lockScroll() : unlockScroll();
+    }
   }, [isOpened]);
-
-  useEffect(() => {
-    console.log(openedSubmenus);
-  }, [openedSubmenus])
 
   function menuItemClickHandler(id) {
     dispatch(setActiveSection(id));
+    (openHandler && isMobile) && openHandler(false);
   }
 
   function toggleSubmenu(itemId) {
@@ -37,6 +37,7 @@ export function SideBar({ isOpened }) {
 
   return (
     <aside className={classNames(styles.wrapper, { [styles.opened]: isOpened })}>
+      <button className={styles.close} onClick={() => openHandler(false)}></button>
       <div className={styles.navMenu}>
         {menu.map((group, index) => (
           <div className={styles.menuGroup} key={index}>
