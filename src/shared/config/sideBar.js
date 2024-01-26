@@ -22,18 +22,18 @@ export function getMenuData() {
       { id: 'vps', name: 'Заказать VPS', icon: cartIcon, submenu: null },
       {
         id: 'account', name: 'Аккаунт', icon: userIcon, submenu: [
-          { name: 'Профиль', type: 'menu', icon: profile },
-          { name: 'Финансы', type: 'menu', icon: finances },
-          { name: 'Услуги', type: 'menu', icon: serveces },
+          { id: 'profile', name: 'Профиль', type: 'menu', icon: profile },
+          { id: 'finances', name: 'Финансы', type: 'menu', icon: finances },
+          { id: 'serveces', name: 'Услуги', type: 'menu', icon: serveces },
         ]
       }
     ],
     [
       {
         id: 'servers', name: 'Серверы', icon: serversIcon, submenu: [
-          { name: 'username_vps_1', type: 'monitor', icon: 'active' },
-          { name: 'username_vps_2', type: 'monitor', icon: 'active' },
-          { name: 'username_vps_3', type: 'monitor', icon: 'inactive' }
+          { id: 'vps_1', name: 'username_vps_1', type: 'monitor', icon: 'active' },
+          { id: 'vps_2', name: 'username_vps_2', type: 'monitor', icon: 'active' },
+          { id: 'vps_3', name: 'username_vps_3', type: 'monitor', icon: 'inactive' }
         ]
       },
       { id: 'database', name: 'Базы данных', icon: dataBasesIcon, submenu: null },
