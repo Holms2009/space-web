@@ -111,6 +111,10 @@
   background-color: var(--blue-main);
 }
 
+.menuItemWrapper.active {
+  background-color: color-mix(in srgb, var(--blue-main) 10%, var(--white));
+}
+
 .menuItemWrapper.active::before {
   display: block;
 }
