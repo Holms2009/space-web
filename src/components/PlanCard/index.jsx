@@ -12,6 +12,7 @@ import {
   getTotalPrice
 } from './utils';
 import { Button, LRToggle, Select } from '../../shared/ui-kit';
+import classNames from 'classnames';
 
 export function PlanCard({ plan, selectPanel, selectOs, dataCenters, distributives }) {
   const dcOptions = getDCOptions(dataCenters);
@@ -53,7 +54,7 @@ export function PlanCard({ plan, selectPanel, selectOs, dataCenters, distributiv
   }
 
   return (
-    <div className={styles.wrapper}>
+    <div className={classNames(styles.wrapper, {[styles.light]: plan.category === 'hdd'})}>
       <div className={styles.header}>
         <img src={getCategoryIcon(plan.category)} alt="" />
         <span className={styles.planName}>{plan.name}</span>

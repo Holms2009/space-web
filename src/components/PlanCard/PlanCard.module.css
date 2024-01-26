@@ -2,7 +2,11 @@
   padding: 20px 20px 24px 20px;
   width: 280px;
 
-  background-color: color-mix(in srgb, var(--lazur) 12%, var(--white));
+  background-color: color-mix(in srgb, var(--lazur) 19%, var(--white));
+}
+
+.wrapper.light {
+  background-color: color-mix(in srgb, var(--lazur) 5%, var(--white));
 }
 
 .header {
