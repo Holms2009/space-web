@@ -54,7 +54,10 @@ export function PlanCard({ plan, selectPanel, selectOs, dataCenters, distributiv
   }
 
   return (
-    <div className={classNames(styles.wrapper, {[styles.light]: plan.category === 'hdd'})}>
+    <div className={classNames(
+      styles.wrapper,
+      { [styles.light]: plan.category === 'hdd', [styles.dark]: plan.category === 'turbo' }
+    )}>
       <div className={styles.header}>
         <img src={getCategoryIcon(plan.category)} alt="" />
         <span className={styles.planName}>{plan.name}</span>
