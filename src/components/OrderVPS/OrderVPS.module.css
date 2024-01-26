@@ -40,12 +40,22 @@
   gap: 20px;
 }
 
+@media screen and (min-width: 540px) {
+  .cards {
+    margin: 20px auto 0;
+    max-width: 500px;
+    justify-content: flex-start;
+  }  
+}
+
 @media screen and (min-width: 768px) {
   .filter {
     max-width: 240px;
   }
 
   .cards {
+    margin: 20px 0 0;
+    max-width: unset;
     justify-content: flex-start;
   }  
 }
